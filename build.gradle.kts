@@ -28,6 +28,9 @@ repositories {
 extra["springCloudVersion"] = "2022.0.4"
 
 dependencies {
+    implementation(platform("software.amazon.awssdk:bom:2.20.56"))
+    implementation("software.amazon.awssdk:secretsmanager")
+
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 //    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 //    implementation("org.springframework.boot:spring-boot-starter-data-rest")
