@@ -8,4 +8,6 @@ import java.io.Serializable
 data class KarloApiRequest(
     val prompt: String,
     val negativePrompt: String? = null,
+    val returnType: KarloApiRequestReturnType? = null,
 ) : Serializable
+

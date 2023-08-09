@@ -1,22 +1,31 @@
 package ybigta.emoticon.ybigtaemoticonbackend.domain.karloapi.controller
 
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.server.ResponseStatusException
 import ybigta.emoticon.ybigtaemoticonbackend.domain.karloapi.service.KarloApiService
-import ybigta.emoticon.ybigtaemoticonbackend.infra.karloapi.KarloApiResponse
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/karlo")
 class KarloApiController(
     private val karloApiService: KarloApiService,
 ) {
-    @PostMapping("/infer")
+    @GetMapping(
+        "/infer",
+        produces = [MediaType.IMAGE_JPEG_VALUE],
+    )
     fun infer(
-        @RequestBody
+        @RequestParam
+        key: String,
+        @RequestParam
         prompt: String,
-    ): KarloApiResponse {
+    ): ByteArray {
+        if (key != "29af196d3bb3b46177f3ec5cbe4c44d8")
+            throw ResponseStatusException(HttpStatus.FORBIDDEN)
         return karloApiService.infer(prompt)
     }
 }
