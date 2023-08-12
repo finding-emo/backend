@@ -1,13 +1,13 @@
 version: "3.7"
 services:
   ybigta-emoticon-mysql:
-    image: mysql:8.1
+    image: mysql:8.0
     container_name: ybigta-emoticon
     volumes:
       - mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: "6ea0f01f74b24bca2c4125fab1b5e691"
-      MYSQL_DATABASE: ybigta-emoticon
+      MYSQL_DATABASE: ybigta_emoticon
     ports:
       - "3310:3306"
 
