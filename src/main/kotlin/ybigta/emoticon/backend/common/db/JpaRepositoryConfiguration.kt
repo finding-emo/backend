@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
-import ybigta.emoticon.backend.common.ApplicationCommon
+import ybigta.emoticon.backend.common.environment.ApplicationCommon
 import ybigta.emoticon.backend.infra.aws.RdsConnectionInfra
 import ybigta.emoticon.backend.infra.aws.SecretsManagerInfra
 import javax.sql.DataSource

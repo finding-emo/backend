@@ -2,7 +2,7 @@ package ybigta.emoticon.backend.common.feignclient
 
 import org.springframework.cloud.openfeign.EnableFeignClients
 import org.springframework.context.annotation.Configuration
-import ybigta.emoticon.backend.common.ApplicationCommon
+import ybigta.emoticon.backend.common.environment.ApplicationCommon
 
 @EnableFeignClients(basePackages = [ApplicationCommon.BASE_PACKAGE])
 @Configuration
