@@ -30,6 +30,7 @@ extra["springCloudVersion"] = "2022.0.4"
 dependencies {
     implementation(platform("software.amazon.awssdk:bom:2.20.56"))
     implementation("software.amazon.awssdk:secretsmanager")
+    implementation("software.amazon.awssdk:rds")
 
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
