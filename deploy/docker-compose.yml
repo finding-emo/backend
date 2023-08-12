@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  ybigta-emoticon-backend:
+    build:
+      context: ../
+      dockerfile: ./deploy/Dockerfile
+      args:
+        - JAR_FILE=build/libs/ybigta-emoticon-backend.jar
+    image: kimhajin/ybigta-emoticon-backend
+#    container_name: ybigta-emoticon
+#    ports:
+#      - "8080:8080"
