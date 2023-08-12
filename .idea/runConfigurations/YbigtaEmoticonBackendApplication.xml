@@ -2,7 +2,7 @@
   <configuration default="false" name="YbigtaEmoticonBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <option name="ACTIVE_PROFILES" value="local" />
     <module name="ybigta-emoticon-backend.main" />
-    <option name="SPRING_BOOT_MAIN_CLASS" value="ybigta.emoticon.ybigtaemoticonbackend.YbigtaEmoticonBackendApplication" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="ybigta.emoticon.backend.YbigtaEmoticonBackendApplication" />
     <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
       <option name="credential" value="profile:ybigta-emoticon" />
       <option name="region" value="ap-northeast-2" />

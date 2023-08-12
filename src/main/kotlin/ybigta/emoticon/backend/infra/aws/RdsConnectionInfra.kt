@@ -1,4 +1,4 @@
-package ybigta.emoticon.ybigtaemoticonbackend.infra.aws
+package ybigta.emoticon.backend.infra.aws
 
 import org.springframework.stereotype.Service
 import software.amazon.awssdk.services.rds.RdsClient

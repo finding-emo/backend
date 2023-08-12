@@ -1,4 +1,4 @@
-package ybigta.emoticon.ybigtaemoticonbackend.infra.karloapi
+package ybigta.emoticon.backend.infra.karloapi
 
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.PostMapping

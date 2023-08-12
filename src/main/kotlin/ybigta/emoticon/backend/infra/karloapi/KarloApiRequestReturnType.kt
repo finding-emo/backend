@@ -1,4 +1,4 @@
-package ybigta.emoticon.ybigtaemoticonbackend.infra.karloapi
+package ybigta.emoticon.backend.infra.karloapi
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

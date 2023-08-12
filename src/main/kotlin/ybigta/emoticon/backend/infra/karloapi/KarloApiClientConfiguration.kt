@@ -1,9 +1,9 @@
-package ybigta.emoticon.ybigtaemoticonbackend.infra.karloapi
+package ybigta.emoticon.backend.infra.karloapi
 
 import feign.RequestInterceptor
 import feign.RequestTemplate
 import org.springframework.context.annotation.Bean
-import ybigta.emoticon.ybigtaemoticonbackend.infra.aws.SecretsManagerInfra
+import ybigta.emoticon.backend.infra.aws.SecretsManagerInfra
 
 
 class KarloApiClientConfiguration(

@@ -1,4 +1,4 @@
-package ybigta.emoticon.ybigtaemoticonbackend.common.configuration
+package ybigta.emoticon.backend.common.db
 
 import java.io.Serializable
 

@@ -1,4 +1,4 @@
-package ybigta.emoticon.ybigtaemoticonbackend.domain.karloapi.controller
+package ybigta.emoticon.backend.domain.karloapi.controller
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.server.ResponseStatusException
-import ybigta.emoticon.ybigtaemoticonbackend.domain.karloapi.service.KarloApiService
+import ybigta.emoticon.backend.domain.karloapi.service.KarloApiService
 
 @RestController
 @RequestMapping("/karlo")

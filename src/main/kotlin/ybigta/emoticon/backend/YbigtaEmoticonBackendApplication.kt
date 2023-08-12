@@ -1,4 +1,4 @@
-package ybigta.emoticon.ybigtaemoticonbackend
+package ybigta.emoticon.backend
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

@@ -1,4 +1,4 @@
-package ybigta.emoticon.ybigtaemoticonbackend.infra.aws
+package ybigta.emoticon.backend.infra.aws
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.stereotype.Service

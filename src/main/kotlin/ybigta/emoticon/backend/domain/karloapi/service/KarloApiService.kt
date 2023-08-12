@@ -1,9 +1,9 @@
-package ybigta.emoticon.ybigtaemoticonbackend.domain.karloapi.service
+package ybigta.emoticon.backend.domain.karloapi.service
 
 import org.springframework.stereotype.Service
-import ybigta.emoticon.ybigtaemoticonbackend.infra.karloapi.KarloApiClient
-import ybigta.emoticon.ybigtaemoticonbackend.infra.karloapi.KarloApiRequest
-import ybigta.emoticon.ybigtaemoticonbackend.infra.karloapi.KarloApiRequestReturnType
+import ybigta.emoticon.backend.infra.karloapi.KarloApiClient
+import ybigta.emoticon.backend.infra.karloapi.KarloApiRequest
+import ybigta.emoticon.backend.infra.karloapi.KarloApiRequestReturnType
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
 
