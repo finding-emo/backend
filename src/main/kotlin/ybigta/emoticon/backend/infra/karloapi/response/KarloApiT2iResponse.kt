@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming
 import java.io.Serializable
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
-data class KarloApiResponse(
+data class KarloApiT2iResponse(
     val id: String,
     val modelVersion: String,
     val images: List<Image>,

@@ -2,8 +2,8 @@ package ybigta.emoticon.backend.infra.karloapi
 
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.PostMapping
-import ybigta.emoticon.backend.infra.karloapi.request.KarloApiRequest
-import ybigta.emoticon.backend.infra.karloapi.response.KarloApiResponse
+import ybigta.emoticon.backend.infra.karloapi.request.KarloApiT2iRequest
+import ybigta.emoticon.backend.infra.karloapi.response.KarloApiT2iResponse
 
 /**
  * @see <a href="https://developers.kakao.com/docs/latest/ko/karlo/common">Karlo API</a>
@@ -15,8 +15,8 @@ import ybigta.emoticon.backend.infra.karloapi.response.KarloApiResponse
 )
 interface KarloApiClient {
     @PostMapping("/v2/inference/karlo/t2i")
-    fun infer(
-        request: KarloApiRequest,
-    ): KarloApiResponse
+    fun t2i(
+        request: KarloApiT2iRequest,
+    ): KarloApiT2iResponse
 }
 
