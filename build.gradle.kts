@@ -42,6 +42,10 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
     runtimeOnly("com.mysql:mysql-connector-j")
 
+    val springDocVersion = "2.2.0"
+    implementation("org.springdoc", "springdoc-openapi-starter-common", springDocVersion)
+    implementation("org.springdoc", "springdoc-openapi-starter-webmvc-ui", springDocVersion)
+
 //    implementation("org.liquibase:liquibase-core")
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")

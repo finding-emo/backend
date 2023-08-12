@@ -1,6 +1,7 @@
 package ybigta.emoticon.backend.domain.karloapi.controller
 
 import org.springframework.http.HttpStatus
+import io.swagger.v3.oas.annotations.Operation
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -15,6 +16,7 @@ class KarloApiController(
     private val karloApiService: KarloApiService,
 ) {
     @GetMapping(
+    @Operation(summary = "Karlo API를 이용해 프롬프트 1개에 대한 이미지 1장을 inference합니다.")
         "/infer",
         produces = [MediaType.IMAGE_JPEG_VALUE],
     )
