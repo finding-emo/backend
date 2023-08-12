@@ -2,6 +2,8 @@ package ybigta.emoticon.backend.infra.karloapi
 
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.PostMapping
+import ybigta.emoticon.backend.infra.karloapi.request.KarloApiRequest
+import ybigta.emoticon.backend.infra.karloapi.response.KarloApiResponse
 
 /**
  * @see <a href="https://developers.kakao.com/docs/latest/ko/karlo/common">Karlo API</a>
