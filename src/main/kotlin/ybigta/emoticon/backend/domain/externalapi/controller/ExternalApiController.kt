@@ -27,7 +27,11 @@ class ExternalApiController(
         @RequestBody
         request: InferT2iRequest,
     ): ByteArray {
-        return externalApiService.inferT2iByKarloApi(request.prompt)
+        val negativePrompt = if (request.negativePrompt.isNullOrBlank()) null else request.negativePrompt
+        return externalApiService.inferT2iByKarloApi(
+            request.prompt,
+            negativePrompt,
+        )
     }
 
     @Operation(summary = "Papago NMT API 추론입니다. 텍스트를 한글에서 영어로 번역합니다.")

@@ -9,7 +9,8 @@ import java.io.Serializable
 data class KarloApiT2iRequest(
     val prompt: String,
     val negativePrompt: String? = null,
-    val returnType: ReturnType? = null,
+    val returnType: ReturnType = ReturnType.URL,
+    val nsfwChecker: Boolean = false,
 ) : Serializable {
     enum class ReturnType {
         @JsonProperty("base64_string")

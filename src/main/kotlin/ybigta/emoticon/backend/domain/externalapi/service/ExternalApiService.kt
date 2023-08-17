@@ -21,10 +21,15 @@ class ExternalApiService(
         return Base64.decode(base64String)
     }
 
-    fun inferT2iByKarloApi(prompt: String): ByteArray {
+    fun inferT2iByKarloApi(
+        prompt: String,
+        negativePrompt: String?,
+    ): ByteArray {
         val request = KarloApiT2iRequest(
             prompt = prompt,
+            negativePrompt = negativePrompt,
             returnType = KarloApiT2iRequest.ReturnType.BASE64_STRING,
+            nsfwChecker = true,
         )
 
         return karloApiClient
