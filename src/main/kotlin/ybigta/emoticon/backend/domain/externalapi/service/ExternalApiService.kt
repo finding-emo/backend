@@ -3,6 +3,8 @@ package ybigta.emoticon.backend.domain.externalapi.service
 import org.springframework.stereotype.Service
 import ybigta.emoticon.backend.infra.karloapi.KarloApiClient
 import ybigta.emoticon.backend.infra.karloapi.request.KarloApiT2iRequest
+import ybigta.emoticon.backend.infra.keywordmodel.KeywordModelClient
+import ybigta.emoticon.backend.infra.keywordmodel.KeywordModelExtractRequest
 import ybigta.emoticon.backend.infra.papagoapi.PapagoApiClient
 import ybigta.emoticon.backend.infra.papagoapi.request.PapagoApiNmtRequest
 import kotlin.io.encoding.Base64
@@ -12,6 +14,7 @@ import kotlin.io.encoding.ExperimentalEncodingApi
 class ExternalApiService(
     private val karloApiClient: KarloApiClient,
     private val papagoApiClient: PapagoApiClient,
+    private val keywordModelClient: KeywordModelClient,
 ) {
     @OptIn(ExperimentalEncodingApi::class)
     fun base64StringToByteArray(base64String: String): ByteArray {
@@ -42,6 +45,18 @@ class ExternalApiService(
             .message
             .result
             .translatedText
+    }
+
+    fun inferKeywordExtractByKeywordModel(text: String): List<String> {
+        val request = KeywordModelExtractRequest(
+            text = text,
+        )
+
+        return keywordModelClient
+            .extract(request)
+            .keywords
+            .sortedByDescending { it.score }
+            .map { it.keyword }
     }
 }
 

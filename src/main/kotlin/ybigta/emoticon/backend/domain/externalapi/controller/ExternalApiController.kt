@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import ybigta.emoticon.backend.domain.externalapi.controller.request.InferKeywordExtractRequest
 import ybigta.emoticon.backend.domain.externalapi.controller.request.InferNmtRequest
 import ybigta.emoticon.backend.domain.externalapi.controller.request.InferT2iRequest
+import ybigta.emoticon.backend.domain.externalapi.controller.response.InferKeywordExtractResponse
 import ybigta.emoticon.backend.domain.externalapi.controller.response.InferNmtResponse
 import ybigta.emoticon.backend.domain.externalapi.service.ExternalApiService
 
@@ -37,6 +39,17 @@ class ExternalApiController(
         val result = externalApiService.inferNmtByPapagoApi(request.text)
 
         return InferNmtResponse(result)
+    }
+
+    @Operation(summary = "Yake 키워드 추출 추론입니다. 텍스트에서 키워드를 추출합니다.")
+    @PostMapping("/keywordExtract")
+    fun inferKeywordExtract(
+        @RequestBody
+        request: InferKeywordExtractRequest,
+    ): InferKeywordExtractResponse {
+        val result = externalApiService.inferKeywordExtractByKeywordModel(request.text)
+
+        return InferKeywordExtractResponse(result)
     }
 }
 
