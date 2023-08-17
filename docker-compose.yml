@@ -2,7 +2,7 @@ version: "3.7"
 services:
   ybigta-emoticon-mysql:
     image: mysql:8.0
-    container_name: ybigta-emoticon
+    container_name: ybigta-emoticon-database
     volumes:
       - mysql-data:/var/lib/mysql
     environment:
