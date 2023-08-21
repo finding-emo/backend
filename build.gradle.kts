@@ -46,7 +46,6 @@ dependencies {
     implementation("org.springdoc", "springdoc-openapi-starter-common", springDocVersion)
     implementation("org.springdoc", "springdoc-openapi-starter-webmvc-ui", springDocVersion)
 
-    implementation("com.theokanning.openai-gpt3-java:service:0.15.0")
     implementation("com.google.firebase:firebase-admin:9.2.0")
 
 //    implementation("org.liquibase:liquibase-core")
