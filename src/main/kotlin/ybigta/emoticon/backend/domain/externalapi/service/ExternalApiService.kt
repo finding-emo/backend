@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service
 import ybigta.emoticon.backend.infra.karloapi.KarloApiClient
 import ybigta.emoticon.backend.infra.karloapi.request.KarloApiT2iRequest
 import ybigta.emoticon.backend.infra.keywordmodel.KeywordModelClient
-import ybigta.emoticon.backend.infra.keywordmodel.KeywordModelExtractRequest
+import ybigta.emoticon.backend.infra.keywordmodel.request.KeywordModelExtractRequest
 import ybigta.emoticon.backend.infra.papagoapi.PapagoApiClient
 import ybigta.emoticon.backend.infra.papagoapi.request.PapagoApiNmtRequest
 import kotlin.io.encoding.Base64

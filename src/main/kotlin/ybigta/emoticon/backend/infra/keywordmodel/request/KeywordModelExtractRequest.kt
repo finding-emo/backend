@@ -1,4 +1,4 @@
-package ybigta.emoticon.backend.infra.keywordmodel
+package ybigta.emoticon.backend.infra.keywordmodel.request
 
 import java.io.Serializable
 
