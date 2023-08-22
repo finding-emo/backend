@@ -2,7 +2,6 @@ package ybigta.emoticon.backend.infra.firebase
 
 import com.google.auth.oauth2.GoogleCredentials
 import com.google.cloud.firestore.Firestore
-import com.google.cloud.firestore.QueryDocumentSnapshot
 import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseOptions
 import com.google.firebase.cloud.FirestoreClient
@@ -39,10 +38,4 @@ class FirebaseInfra(
 
         return Survey.fromMap(map)
     }
-
-    fun listSurveys(): List<QueryDocumentSnapshot> {
-        val query = db.collection("surveys").get()
-        return query.get().documents
-    }
 }
-
