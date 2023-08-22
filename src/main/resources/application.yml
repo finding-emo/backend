@@ -3,3 +3,18 @@ springdoc:
     path: "/docs"
 server:
   port: 80
+  error:
+    include-message: always
+logging:
+  level:
+    root: WARN
+    web: DEBUG
+    reactor:
+      netty: DEBUG
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG
+      hibernate:
+        SQL: DEBUG
