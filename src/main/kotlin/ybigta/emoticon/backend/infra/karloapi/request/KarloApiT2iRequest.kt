@@ -9,6 +9,7 @@ import java.io.Serializable
 data class KarloApiT2iRequest(
     val prompt: String,
     val negativePrompt: String? = null,
+    val samples: Int = 1,
     val returnType: ReturnType = ReturnType.URL,
     val nsfwChecker: Boolean = false,
 ) : Serializable {
@@ -16,7 +17,7 @@ data class KarloApiT2iRequest(
         @JsonProperty("base64_string")
         BASE64_STRING,
 
-        @JsonProperty("base64_url")
+        @JsonProperty("url")
         URL,
     }
 }
