@@ -1,17 +1,19 @@
 package ybigta.emoticon.backend.infra.firebase
 
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.google.auth.oauth2.GoogleCredentials
 import com.google.cloud.firestore.Firestore
 import com.google.cloud.firestore.QueryDocumentSnapshot
 import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseOptions
 import com.google.firebase.cloud.FirestoreClient
+import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
+import org.springframework.web.server.ResponseStatusException
+import ybigta.emoticon.backend.domain.survey.entity.Survey
 import ybigta.emoticon.backend.infra.aws.SecretsManagerInfra
 
 @Service
-class FirebaseClient(
+class FirebaseInfra(
     secretsManagerInfra: SecretsManagerInfra,
 ) {
     private val db: Firestore
@@ -31,8 +33,16 @@ class FirebaseClient(
         db = FirestoreClient.getFirestore()
     }
 
-    fun listSurveys(): MutableList<QueryDocumentSnapshot> {
+    fun getSurveyById(id: String): Survey {
+        val query = db.collection("surveys").document(id).get()
+        val map = query.get().data ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "설문조사가 존재하지 않습니다.")
+
+        return Survey.fromMap(map)
+    }
+
+    fun listSurveys(): List<QueryDocumentSnapshot> {
         val query = db.collection("surveys").get()
         return query.get().documents
     }
 }
+
