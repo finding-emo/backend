@@ -10,8 +10,8 @@ import ybigta.emoticon.backend.infra.keywordmodel.response.KeywordModelExtractRe
     url = "http://localhost:9000",
 )
 interface KeywordModelClient {
-    @PostMapping("/")
-    fun extract(
+    @PostMapping("/keywords")
+    fun extractKeywords(
         request: KeywordModelExtractRequest,
     ): KeywordModelExtractResponse
 }

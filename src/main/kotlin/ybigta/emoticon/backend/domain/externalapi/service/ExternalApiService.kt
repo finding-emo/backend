@@ -52,13 +52,13 @@ class ExternalApiService(
             .translatedText
     }
 
-    fun inferKeywordExtractByKeywordModel(text: String): List<String> {
-        val request = KeywordModelExtractRequest(
-            text = text,
-        )
+    fun extractKeywordsByKeywordModel(
+        text: String,
+    ): List<String> {
+        val request = KeywordModelExtractRequest(text = text)
 
         return keywordModelClient
-            .extract(request)
+            .extractKeywords(request)
             .keywords
             .sortedByDescending { it.score }
             .map { it.keyword }

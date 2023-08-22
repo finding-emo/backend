@@ -51,7 +51,7 @@ class ExternalApiController(
         @RequestBody
         request: InferKeywordExtractRequest,
     ): InferKeywordExtractResponse {
-        val result = externalApiService.inferKeywordExtractByKeywordModel(request.text)
+        val result = externalApiService.extractKeywordsByKeywordModel(request.text)
 
         return InferKeywordExtractResponse(result)
     }
