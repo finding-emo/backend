@@ -12,12 +12,10 @@ import ybigta.emoticon.backend.domain.survey.entity.Survey
 import ybigta.emoticon.backend.infra.aws.SecretsManagerInfra
 
 @Service
-class FirebaseInfra(
+class FirestoreInfra(
     secretsManagerInfra: SecretsManagerInfra,
 ) {
-    private val db: Firestore
-
-    init {
+    private val db: Firestore = run {
         val serviceAccount = secretsManagerInfra
             .getString("ybigta-emoticon/firebase-admin-sdk-key")
             .byteInputStream()
@@ -26,10 +24,9 @@ class FirebaseInfra(
             .builder()
             .setCredentials(credentials)
             .build()
-
         FirebaseApp.initializeApp(options)
 
-        db = FirestoreClient.getFirestore()
+        FirestoreClient.getFirestore()
     }
 
     fun getSurveyById(id: String): Survey {

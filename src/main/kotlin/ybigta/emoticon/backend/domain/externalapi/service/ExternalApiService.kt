@@ -42,6 +42,25 @@ class ExternalApiService(
             .let { base64StringToByteArray(it) }
     }
 
+    fun inferT2iUrlsByKarloApi(
+        prompt: String,
+        negativePrompt: String?,
+        nSamples: Int,
+    ): List<String> {
+        val request = KarloApiT2iRequest(
+            prompt = prompt,
+            negativePrompt = negativePrompt,
+            samples = nSamples,
+            returnType = KarloApiT2iRequest.ReturnType.URL,
+            nsfwChecker = true,
+        )
+
+        return karloApiClient
+            .t2i(request)
+            .images
+            .map { it.image }
+    }
+
     fun inferNmtByPapagoApi(text: String): String {
         val request = PapagoApiNmtRequest(
             text = text,
