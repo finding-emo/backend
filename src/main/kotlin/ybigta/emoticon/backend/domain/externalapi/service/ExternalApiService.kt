@@ -1,10 +1,12 @@
 package ybigta.emoticon.backend.domain.externalapi.service
 
 import org.springframework.stereotype.Service
+import ybigta.emoticon.backend.domain.survey.entity.Survey
 import ybigta.emoticon.backend.infra.karloapi.KarloApiClient
 import ybigta.emoticon.backend.infra.karloapi.request.KarloApiT2iRequest
 import ybigta.emoticon.backend.infra.keywordmodel.KeywordModelClient
 import ybigta.emoticon.backend.infra.keywordmodel.request.KeywordModelExtractRequest
+import ybigta.emoticon.backend.infra.keywordmodel.request.KeywordModelGeneratePromptRequest
 import ybigta.emoticon.backend.infra.papagoapi.PapagoApiClient
 import ybigta.emoticon.backend.infra.papagoapi.request.PapagoApiNmtRequest
 import kotlin.io.encoding.Base64
@@ -62,6 +64,22 @@ class ExternalApiService(
             .keywords
             .sortedByDescending { it.score }
             .map { it.keyword }
+    }
+
+    fun generatePromptByKeywordModel(
+        text: String,
+        translatedKeywords: List<String>,
+        survey: Survey,
+    ): Pair<List<String>, String> {
+        val request = KeywordModelGeneratePromptRequest(
+            text = text,
+            translatedKeywords = translatedKeywords,
+            survey = survey,
+        )
+
+        return keywordModelClient
+            .generatePrompt(request)
+            .let { it.prompts to it.negativePrompt }
     }
 }
 
