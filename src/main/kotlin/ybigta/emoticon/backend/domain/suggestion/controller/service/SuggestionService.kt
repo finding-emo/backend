@@ -22,7 +22,7 @@ class SuggestionService(
         val keywords = externalApiService.extractKeywordsByKeywordModel(translatedText)
 
         val (prompts, negativePrompt) = externalApiService.generatePromptByKeywordModel(
-            text = text,
+            text = "user${clientId.take(3)}: $text",
             translatedKeywords = keywords,
             survey = survey,
         )
@@ -37,15 +37,13 @@ class SuggestionService(
                 )
             }
 
-
-
         return prompts
             .parallelStream()
             .map {
                 externalApiService
                     .inferT2iUrlsByKarloApi(
-                        prompt = it.strip(),
-                        negativePrompt = negativePrompt,
+                        prompt = it.trim(),
+                        negativePrompt = negativePrompt.trim(),
                         nSamples = 1,
                     )
                     .single()
